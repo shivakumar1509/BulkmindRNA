@@ -1,0 +1,250 @@
+.p03-wrap { margin-top: 8px; margin-bottom: 24px; }
+
+.p03-mode-row {
+  display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 14px;
+}
+
+.p03-or {
+  font-weight: 700; color: #111827; opacity: 0.7; font-size: 13px;
+}
+
+/* Restoring your Pill Styles */
+.p03-pill {
+  padding: 10px 22px; font-size: 14px; font-weight: 800; border-radius: 9999px; border: none;
+  background: #1B427A; color: #ffffff; cursor: pointer;
+  box-shadow: 0 8px 20px rgba(27, 66, 122, 0.22);
+  transition: transform 120ms ease, opacity 120ms ease; outline: none;
+}
+.p03-pill:disabled { opacity: 0.55; cursor: default; }
+.p03-pill:hover:not(:disabled) { transform: translateY(-1px); }
+.p03-pill:focus { outline: none !important; box-shadow: 0 8px 20px rgba(27, 66, 122, 0.22) !important; }
+.p03-pill.active { box-shadow: 0 10px 24px rgba(27, 66, 122, 0.26); background: #2563eb; }
+
+.p03-pill-inner { display: inline-flex; align-items: flex-start; gap: 10px; }
+.p03-check {
+  display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 9999px;
+  background: #22c55e; color: #ffffff; font-size: 14px; font-weight: 900; line-height: 1;
+}
+
+/* Notice & Save Bar */
+.p03-notice {
+  border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; font-size: 13px;
+  color: #111827; background: #f8fafc; margin-bottom: 12px;
+}
+.p03-error-text {
+  font-family: ui-monospace, monospace; font-size: 12px; color: #7f1d1d; white-space: pre-wrap;
+}
+.p03-savebar { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+.p03-selected { font-size: 13px; color: #111827; display: flex; gap: 6px; }
+.p03-selected-label { font-weight: 700; opacity: 0.75; }
+.p03-selected-value { font-weight: 900; }
+
+/* Fixed Layout Grid */
+.p03-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); /* Balanced ratio */
+  gap: 14px; align-items: start;
+}
+
+@media (max-width: 980px) { .p03-grid { grid-template-columns: 1fr; } }
+
+.p03-card {
+  border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; background: #ffffff;
+  display: flex; flex-direction: column;
+  height: 600px; /* ✅ FROZEN HEIGHT: No more long messy tables */
+  overflow: hidden;
+}
+
+.p03-card-title { font-size: 14px; font-weight: 900; color: #0f172a; margin-bottom: 10px; }
+.p03-card-title-row { display: flex; justify-content: space-between; align-items: flex-start; }
+
+/* PCA Image Handling */
+.p03-figure-wrap {
+  flex: 1; min-height: 0; display: flex; align-items: flex-start; justify-content: center;
+  border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; background: #ffffff;
+}
+.p03-figure { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* Internal Table Scrolling */
+.p03-table-wrap {
+  flex: 1; min-height: 0; overflow: auto; border: 1px solid #e5e7eb; border-radius: 12px;
+}
+.p03-table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+.p03-table th { position: sticky; top: 0; background: #f8fafc; padding: 8px 10px; text-align: left; border-bottom: 1px solid #e5e7eb; z-index: 10; font-weight: 900; }
+.p03-table td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; word-break: break-all; }
+.row-remove { background: #fef2f2; }
+
+/* Controls Styling */
+.p03-pca-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.p03-kind-toggle { display: inline-flex; gap: 6px; padding: 4px; border-radius: 9999px; border: 1px solid #e5e7eb; background: #f8fafc; }
+.p03-kind-btn { border: none; background: transparent; padding: 6px 10px; border-radius: 9999px; font-size: 11px; font-weight: 900; cursor: pointer; color: #334155; outline: none; }
+.p03-kind-btn.on { background: #1B427A; color: #ffffff; }
+.p03-open-btn { border: 1px solid #e5e7eb; background: #ffffff; color: #0f172a; padding: 7px 10px; border-radius: 10px; font-size: 11px; font-weight: 800; text-decoration: none; }
+
+/* Diagnostics */
+.p03-diag-row { grid-column: 1 / -1; margin-top: 14px; }
+.p03-diag-toggle {
+  width: 100%; border: 1px solid #e5e7eb; background: #ffffff; border-radius: 14px; padding: 12px 14px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: flex-start; outline: none;
+}
+.p03-diag-title { font-size: 13px; font-weight: 900; color: #0f172a; }
+.p03-diag-sub { font-size: 12px; color: #64748b; font-weight: 700; }
+.p03-diag-src { font-size: 12px; color: #1B427A; font-weight: 900; }
+
+/* Make the Suggestions note match the diagnostics Source style */
+.p03-suggestions-footer {
+  font-size: 12px;
+  color: #1B427A;
+  font-weight: 900;
+}
+
+.p03-diag-panel { margin-top: 10px; border: 1px solid #e5e7eb; background: #ffffff; border-radius: 14px; padding: 12px; }
+.p03-diag-table-wrap { max-height: 300px; }
+
+/* Reduce PCA preview whitespace: let LEFT card fit content */
+.p03-card.p03-card-left { height: auto; }
+
+
+/* Reduce Manual Review card height */
+.p03-card.p03-card-right { height: 470px; }
+
+
+/* Center-align Suggested column (header + cells) */
+.p03-suggestions-table-wrap .p03-table th:nth-child(2),
+.p03-suggestions-table-wrap .p03-table td:nth-child(2) {
+  text-align: center;
+}
+
+
+/* Diagnostics header layout (match previous working UI) */
+.p03-diag-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+.p03-diag-caret {
+  font-size: 16px;
+  font-weight: 900;
+  color: #334155;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+
+/* ===== Restore previous clean table look (affects diagnostics + suggestions) ===== */
+.p03-table {
+  table-layout: auto;
+}
+.p03-table th {
+  text-align: left;
+  white-space: nowrap;
+}
+.p03-table td {
+  white-space: nowrap;
+  word-break: normal;
+}
+
+/* Diagnostics: match previous header layout */
+.p03-diag-toggle {
+  align-items: flex-start;
+  gap: 12px;
+}
+.p03-diag-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+.p03-diag-caret {
+  font-size: 16px;
+  font-weight: 900;
+  color: #334155;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Diagnostics table scroll height like before */
+.p03-diag-table-wrap {
+  max-height: 360px;
+}
+
+
+/* Move Mode buttons + Save bar to the bottom (below the tables) */
+.p03-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep notice near the top */
+.p03-notice { order: 5; }
+
+/* Main content (PCA + Suggestions + Diagnostics) comes first */
+.p03-content { order: 10; }
+
+/* Controls come after the tables */
+.p03-mode-row {
+  order: 20;
+  margin-top: 14px;
+}
+
+.p03-savebar {
+  order: 30;
+  margin-top: 10px;
+}
+
+
+/* Keep mode buttons on top, move ONLY the Save bar to the bottom */
+.p03-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mode buttons stay on top */
+.p03-mode-row { order: 10; }
+
+/* Notice stays below mode row */
+.p03-notice { order: 20; }
+
+/* Tables/content in the middle */
+.p03-content { order: 30; }
+
+/* Save bar at the very bottom */
+.p03-savebar {
+  order: 40;
+  margin-top: 14px;
+}
+
+
+/* Fix bottom Save bar alignment (button + Selected) */
+.p03-savebar {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+  flex-wrap: nowrap !important;
+}
+
+.p03-savebar .p03-selected {
+  margin-left: 6px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+
+/* Savebar: allow the "No outliers selected..." message to sit on its own line */
+.p03-savebar { flex-wrap: wrap !important; }
+.p03-savebar .p03-suggestions-footer { flex-basis: 100%; margin-top: 6px; }
+
+
+.p03-savebar { flex-wrap: wrap; }
+.p03-savebar .p03-suggestions-footer { flex-basis: 100%; margin-top: 6px; }
+
+
+/* Savebar helper text below buttons */
+.p03-savebar { flex-wrap: wrap; }
+.p03-savebar .p03-suggestions-footer { flex-basis: 100%; margin-top: 6px; }
+

@@ -1,0 +1,36 @@
+# docker-compose.yml
+version: "3.8"
+
+networks:
+  bulk-rna-net:
+    external: true
+    name: bulk-rna-net
+
+services:
+  # production (static files served by nginx)
+  react-bg:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: react-bg:prod
+    container_name: react-bg
+    restart: unless-stopped
+    ports:
+      - "8080:80"      # host:8080 -> nginx:80 (production static)
+    networks:
+      - bulk-rna-net
+
+  # development (vite dev server, hot reload)
+  react-bg-dev:
+    image: node:18-bullseye
+    container_name: react-bg-dev
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    command: /bin/bash -lc "npm ci && npm run dev -- --host 0.0.0.0 --port 3000"
+    ports:
+      - "3000:3000"   # host:3000 -> vite:3000 (dev)
+    networks:
+      - bulk-rna-net
+

@@ -1,0 +1,255 @@
+.bm-wrapper {
+  margin-top: 18px;
+  margin-bottom: 12px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* inner width constraint so it lines up with main app */
+.bm-wrapper-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px 12px 24px;
+}
+
+/* top auth bar */
+.bm-authbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.bm-auth-status {
+  display: flex;
+  align-items: center;
+}
+
+/* pill-style status badge */
+.bm-auth-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.bm-auth-pill-guest {
+  background: #fef3c7; /* amber-100 */
+  border-color: #fed7aa; /* amber-200 */
+  color: #92400e; /* amber-800 */
+}
+
+.bm-auth-pill-ok {
+  background: #ecfdf3; /* green-50 */
+  border-color: #bbf7d0; /* green-200 */
+  color: #166534; /* green-700 */
+}
+
+/* small status dot */
+.bm-auth-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #f97316; /* orange when guest */
+}
+
+.bm-auth-pill-ok .bm-auth-dot {
+  background: #22c55e; /* green when logged in */
+}
+
+.bm-auth-user {
+  font-weight: 600;
+  color: inherit;
+}
+
+.bm-auth-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* orange pill buttons with black text */
+.bm-auth-btn {
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: none;
+  background: #f97316; /* orange */
+  color: #111827;       /* black-ish text */
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
+  letter-spacing: -0.01em;
+}
+
+.bm-auth-btn:hover {
+  background: #fb923c; /* slightly lighter orange on hover */
+}
+
+.bm-auth-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 0 rgba(15, 23, 42, 0.15);
+}
+
+/* brand */
+.bm-brand {
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.bm-brand h1 {
+  color: #1b427a;
+  font-size: 40px;
+  line-height: 1.05;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.bm-brand .bm-sub {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* feature cards */
+.feature-grid {
+  display: flex;
+  gap: 12px;
+  margin: 12px auto 8px auto;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1100px;
+  padding: 0 12px;
+}
+
+.feature-card {
+  flex: 1 1 0;
+  min-width: 200px;
+  max-width: 320px;
+  background: #1b427a;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(27, 66, 122, 0.05);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  height: 88px;
+  box-sizing: border-box;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(27, 66, 122, 0.1);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 38px;
+  box-shadow: none;
+  border: none;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+.feature-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.feature-title {
+  font-weight: 400;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.06;
+  margin-bottom: 6px;
+  text-decoration: none;
+}
+
+.feature-desc {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 14px;
+  line-height: 1.22;
+  margin: 0;
+  opacity: 0.98;
+  font-weight: 400;
+}
+
+.feature-anchor {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+@media (max-width: 880px) {
+  .bm-wrapper-inner {
+    padding: 12px 16px 10px 16px;
+  }
+
+  .feature-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    max-width: 92%;
+    width: 92%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    font-size: 32px;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bm-brand h1 {
+    font-size: 36px;
+  }
+
+  .bm-brand .bm-sub {
+    font-size: 14px;
+  }
+
+  .bm-authbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .bm-auth-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+

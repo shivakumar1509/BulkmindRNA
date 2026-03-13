@@ -1,0 +1,290 @@
+/* src/pipeline/p01_upload_rawdata.css */
+:root{
+  --bm-text:#0f172a;
+  --bm-muted:#6b7280;
+  --bm-border:#cbd5e1;
+  --bm-border-soft:#e5e7eb;
+  --bm-soft:#f8fafc;
+  --bm-focus: rgba(27,66,122,.35);
+  --bm-blue:#1b427a;
+}
+
+/* === Two identical choice buttons row === */
+.bm-upload-row{
+  display:grid;
+  grid-template-columns: 1fr 72px 1fr; /* fixed OR column */
+  align-items:start;
+  gap: 18px;
+  max-width: 980px;
+
+  /* ✅ keeps the whole row from adding extra vertical space */
+  margin-bottom: 4px;
+}
+
+/* make both sides symmetric and centered */
+.bm-upload-left,
+.bm-upload-right{
+  display:flex;
+  flex-direction:column;
+
+  /* ✅ tighten button + subtitle spacing (keeps subtitle adhered) */
+  gap: 4px;
+
+  align-items: center;
+}
+
+/* OR column */
+.bm-upload-or-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* ✅ remove extra vertical spacing around OR */
+  padding-top: 0;
+}
+
+.bm-or-pill{
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .10em;
+  color: var(--bm-text);
+  border: 1px solid var(--bm-border-soft);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  line-height: 1;
+
+  /* ✅ keep OR vertically centered between the two buttons */
+  margin-top: 6px;
+}
+
+/* identical buttons (default = unselected / white) */
+.bm-choice-btn{
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+
+  border: 1px solid var(--bm-border);
+  background: #fff;
+  color: #111827;
+
+  border-radius: 10px;
+
+  /* ✅ smaller buttons */
+  padding: 8px 12px;
+  cursor: pointer;
+
+  width: 170px;         /* ✅ smaller length */
+  text-align: center;
+  box-shadow: none;
+
+  /* ✅ prevent extra whitespace below the button */
+  margin: 0;
+}
+
+.bm-choice-btn:hover{
+  background:#f3f4f6;
+}
+
+/* selected = grey */
+.bm-choice-btn.is-active{
+  border-color:#64748b;
+  background:#e5e7eb;
+  box-shadow: 0 1px 0 rgba(15,23,42,0.06);
+}
+
+.bm-choice-btn:focus-visible{
+  outline: 2px solid var(--bm-focus);
+  outline-offset: 2px;
+}
+
+.bm-choice-btn:disabled{
+  opacity:.6;
+  cursor:default;
+}
+
+.bm-upload-subtext{
+  font-size: 11px;
+  color: var(--bm-muted);
+  line-height: 1.25;
+
+  /* ✅ keep subtitle “adhered” to button (no extra gap) */
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  max-width: 260px;
+}
+
+.bm-hidden-file{
+  display:none;
+}
+
+/* ✅ tighten space after the upload row before next section */
+.bm-global-help{
+  margin: 6px 0 0;  /* was bigger; now tighter */
+  font-size: 11px;
+  color: var(--bm-muted);
+  line-height: 1.35;
+}
+
+.bm-picked{
+  font-size: 12px;
+  color: var(--bm-text);
+  text-align: center;
+
+  /* ✅ keep picked text tight */
+  margin: 0;
+}
+
+.bm-picked-muted{ color: var(--bm-muted); }
+
+.bm-picked-ok{
+  color:#059669;
+}
+
+/* mobile */
+@media (max-width: 720px){
+  .bm-upload-row{
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .bm-upload-left,
+  .bm-upload-right{
+    align-items: stretch;
+    gap: 4px; /* keep subtitle tight on mobile too */
+  }
+
+  .bm-choice-btn{
+    width: 100%;
+  }
+
+  .bm-upload-subtext{
+    text-align: left;
+    max-width: none;
+  }
+
+  .bm-picked{
+    text-align: left;
+  }
+
+  .bm-upload-or-wrap{
+    padding-top: 0;
+  }
+
+  .bm-or-pill{
+    margin-top: 0;
+    justify-self: center;
+  }
+}
+
+/* === Import via link card === */
+.bm-link-import{ margin-top: 12px; }
+
+.bm-link-card{
+  border:1px solid var(--bm-border-soft);
+  background: var(--bm-soft);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.bm-link-card-head{ margin-bottom: 6px; }
+
+.bm-link-title{
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--bm-text);
+  margin: 0;
+}
+
+.bm-link-sub{
+  font-size: 11px;
+  color: var(--bm-muted);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.bm-link-label{
+  display:block;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--bm-text);
+  margin: 10px 0 6px;
+}
+
+.bm-link-textarea{
+  width:100%;
+  box-sizing:border-box;
+  border:1px solid var(--bm-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--bm-text);
+  background:#fff;
+  outline:none;
+  resize: vertical;
+}
+
+.bm-link-textarea:focus{
+  border-color:#94a3b8;
+  box-shadow: 0 0 0 4px rgba(148,163,184,.25);
+}
+
+.bm-link-advanced-toggle{
+  margin-top: 10px;
+  border: 1px solid var(--bm-border);
+  background: #fff;
+  color: var(--bm-blue);
+  font-size: 12px;
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.bm-link-advanced-toggle:hover{
+  background:#f3f4f6;
+}
+
+.bm-link-advanced{
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid var(--bm-border-soft);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.bm-link-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.bm-link-input{
+  width:100%;
+  box-sizing:border-box;
+  border:1px solid var(--bm-border);
+  border-radius: 12px;
+  padding: 9px 10px;
+  font-size: 12px;
+  color: var(--bm-text);
+  background:#fff;
+  outline:none;
+}
+
+.bm-link-input:focus{
+  border-color:#94a3b8;
+  box-shadow: 0 0 0 4px rgba(148,163,184,.25);
+}
+
+@media (max-width: 720px){
+  .bm-link-row{ grid-template-columns: 1fr; }
+}
+
